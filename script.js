@@ -24,7 +24,7 @@ class ProdutorPlusApp {
             button.addEventListener('click', () => {
                 const targetScreen = button.dataset.screen;
                 this.switchScreen(targetScreen);
-                
+
                 // Atualizar botões ativos
                 navButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
@@ -37,12 +37,12 @@ class ProdutorPlusApp {
         screens.forEach(screen => {
             screen.classList.remove('active');
         });
-        
+
         const targetScreen = document.getElementById(screenId);
         if (targetScreen) {
             targetScreen.classList.add('active');
             this.currentScreen = screenId;
-            
+
             // Animações específicas por tela
             this.animateScreenEntry(screenId);
         }
@@ -52,7 +52,7 @@ class ProdutorPlusApp {
         const screen = document.getElementById(screenId);
         screen.style.opacity = '0';
         screen.style.transform = 'translateY(20px)';
-        
+
         setTimeout(() => {
             screen.style.transition = 'all 0.3s ease';
             screen.style.opacity = '1';
@@ -123,11 +123,11 @@ class ProdutorPlusApp {
         const checkboxes = document.querySelectorAll('.checkbox-item input[type="checkbox"]');
         const checkedBoxes = document.querySelectorAll('.checkbox-item input[type="checkbox"]:checked');
         const progressFill = document.querySelector('.progress-fill');
-        
+
         const baseProgress = 30; // 3/10 módulos já completos
         const checklistProgress = (checkedBoxes.length / checkboxes.length) * 10; // 10% adicional para checklist
         const totalProgress = Math.min(baseProgress + checklistProgress, 100);
-        
+
         if (progressFill) {
             progressFill.style.width = `${totalProgress}%`;
         }
@@ -183,7 +183,7 @@ class ProdutorPlusApp {
                 bar.style.transform = 'scaleY(0)';
                 bar.style.transformOrigin = 'bottom';
                 bar.style.transition = 'transform 0.8s ease';
-                
+
                 setTimeout(() => {
                     bar.style.transform = 'scaleY(1)';
                 }, 100);
@@ -198,7 +198,7 @@ class ProdutorPlusApp {
                 const targetWidth = fill.style.width;
                 fill.style.width = '0%';
                 fill.style.transition = 'width 1s ease';
-                
+
                 setTimeout(() => {
                     fill.style.width = targetWidth;
                 }, 100);
@@ -261,7 +261,7 @@ class ProdutorPlusApp {
             const targetValue = 1250;
             let currentValue = 0;
             const increment = targetValue / 50;
-            
+
             const animation = setInterval(() => {
                 currentValue += increment;
                 if (currentValue >= targetValue) {
@@ -394,7 +394,7 @@ class ProdutorPlusApp {
     saveCattleData() {
         const formData = new FormData(document.getElementById('cattleForm'));
         const data = {};
-        
+
         // Coletar dados do formulário
         for (let [key, value] of formData.entries()) {
             data[key] = value;
@@ -403,7 +403,7 @@ class ProdutorPlusApp {
         // Adicionar dados dos radio buttons
         const lactationStatus = document.querySelector('input[name="lactationStatus"]:checked');
         const reproductiveStatus = document.querySelector('input[name="reproductiveStatus"]:checked');
-        
+
         data.lactationStatus = lactationStatus ? lactationStatus.value : '';
         data.reproductiveStatus = reproductiveStatus ? reproductiveStatus.value : '';
         data.id = Date.now(); // ID único
@@ -426,7 +426,7 @@ class ProdutorPlusApp {
 
         const lastEntry = this.cattleData[this.cattleData.length - 1];
         const form = document.getElementById('cattleForm');
-        
+
         // Preencher formulário com dados do último animal
         Object.keys(lastEntry).forEach(key => {
             const field = form.querySelector(`[name="${key}"], #${key}`);
@@ -443,21 +443,21 @@ class ProdutorPlusApp {
         // Limpar campos únicos
         document.getElementById('animalId').value = '';
         document.getElementById('animalName').value = '';
-        
+
         this.showNotification('Dados duplicados! Ajuste os campos únicos.', 'info');
     }
 
     resetForm() {
         const form = document.getElementById('cattleForm');
         form.reset();
-        
+
         // Resetar foto
         const photoPlaceholder = document.querySelector('.photo-placeholder');
         photoPlaceholder.innerHTML = `
             <i class="fas fa-camera"></i>
             <p>Tirar foto ou selecionar</p>
         `;
-        
+
         // Resetar estilos de validação
         const fields = form.querySelectorAll('input, select, textarea');
         fields.forEach(field => {
@@ -468,7 +468,7 @@ class ProdutorPlusApp {
     updateCattleStats() {
         // Atualizar estatísticas do rebanho na tela de resultados
         const totalAnimals = this.cattleData.length;
-        const lactatingAnimals = this.cattleData.filter(animal => 
+        const lactatingAnimals = this.cattleData.filter(animal =>
             animal.lactationStatus === 'lactating'
         ).length;
 
@@ -576,11 +576,11 @@ class ProdutorPlusApp {
     saveProgress() {
         const checkboxes = document.querySelectorAll('.checkbox-item input[type="checkbox"]');
         const progress = {};
-        
+
         checkboxes.forEach(checkbox => {
             progress[checkbox.id] = checkbox.checked;
         });
-        
+
         localStorage.setItem('educationProgress', JSON.stringify(progress));
     }
 

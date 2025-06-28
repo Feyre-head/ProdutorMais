@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
+
 <body>
     <!-- Header -->
     <header class="header">
@@ -33,9 +35,17 @@
             <i class="fas fa-dollar-sign"></i>
             <span>Financeiro</span>
         </button>
+        <button class="nav-btn" data-screen="cattle-list">
+            <i class="fas fa-list"></i>
+            <span>Lista</span>
+        </button>
+        <button class="nav-btn" data-screen="calendar">
+            <i class="fas fa-calendar-alt"></i>
+            <span>Calendário</span>
+        </button>
         <button class="nav-btn" data-screen="cattle">
-            <i class="fas fa-cow"></i>
-            <span>Rebanho</span>
+            <i class="fas fa-plus"></i>
+            <span>Cadastrar</span>
         </button>
     </nav>
 
@@ -47,10 +57,10 @@
                 <h2>📚 Módulo de Educação</h2>
                 <p>Aprenda com conteúdos práticos e acessíveis</p>
             </div>
-            
+
             <div class="module-card">
                 <h3>Módulo 1: Alimentação e nutrição básica</h3>
-                
+
                 <div class="video-container">
                     <div class="video-placeholder">
                         <i class="fas fa-play-circle"></i>
@@ -217,7 +227,157 @@
             </div>
         </section>
 
-        <!-- Tela 4: Cadastro do Rebanho -->
+        <!-- Tela 4: Lista de Animais -->
+        <section id="cattle-list" class="screen">
+            <div class="screen-header">
+                <h2>📋 Lista do Rebanho</h2>
+                <p>Visualize e gerencie todos os seus animais</p>
+            </div>
+
+            <!-- Estatísticas do Rebanho -->
+            <div class="herd-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">🐄</div>
+                    <div class="stat-content">
+                        <div class="stat-number" id="totalAnimals">0</div>
+                        <div class="stat-label">Total de Animais</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🥛</div>
+                    <div class="stat-content">
+                        <div class="stat-number" id="lactatingAnimals">0</div>
+                        <div class="stat-label">Em Lactação</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">💉</div>
+                    <div class="stat-content">
+                        <div class="stat-number" id="vaccinesDue">0</div>
+                        <div class="stat-label">Vacinas Pendentes</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filtros e Busca -->
+            <div class="filters-section">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="animalSearch" placeholder="Buscar por nome ou número...">
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">
+                        <i class="fas fa-list"></i>
+                        Todos
+                    </button>
+                    <button class="filter-btn" data-filter="lactating">
+                        <i class="fas fa-tint"></i>
+                        Lactação
+                    </button>
+                    <button class="filter-btn" data-filter="dry">
+                        <i class="fas fa-pause"></i>
+                        Secas
+                    </button>
+                    <button class="filter-btn" data-filter="pregnant">
+                        <i class="fas fa-heart"></i>
+                        Prenhas
+                    </button>
+                    <button class="filter-btn" data-filter="vaccine-due">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        Vacina Pendente
+                    </button>
+                </div>
+            </div>
+
+            <!-- Lista de Animais -->
+            <div class="animals-grid" id="animalsGrid">
+                <!-- Os cards dos animais serão inseridos aqui via JavaScript -->
+            </div>
+
+            <!-- Estado vazio -->
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <div class="empty-icon">🐄</div>
+                <h3>Nenhum animal cadastrado</h3>
+                <p>Comece cadastrando seu primeiro animal</p>
+                <button class="btn-primary" onclick="switchToScreen('cattle')">
+                    <i class="fas fa-plus"></i>
+                    Cadastrar Animal
+                </button>
+            </div>
+        </section>
+
+        <!-- Tela 5: Calendário -->
+        <section id="calendar" class="screen">
+            <div class="screen-header">
+                <h2>📅 Calendário de Atividades</h2>
+                <p>Controle vacinas, pasto e outras atividades</p>
+            </div>
+
+            <!-- Navegação do Calendário -->
+            <div class="calendar-nav">
+                <button class="calendar-nav-btn" id="prevMonth">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="calendar-title">
+                    <h3 id="currentMonth">Janeiro 2025</h3>
+                </div>
+                <button class="calendar-nav-btn" id="nextMonth">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <!-- Legenda de Eventos -->
+            <div class="calendar-legend">
+                <div class="legend-item">
+                    <div class="legend-color vaccine"></div>
+                    <span>Vacinação</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color pasture"></div>
+                    <span>Rotação de Pasto</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color breeding"></div>
+                    <span>Reprodução</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color health"></div>
+                    <span>Saúde</span>
+                </div>
+            </div>
+
+            <!-- Calendário -->
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <div class="calendar-day-header">Dom</div>
+                    <div class="calendar-day-header">Seg</div>
+                    <div class="calendar-day-header">Ter</div>
+                    <div class="calendar-day-header">Qua</div>
+                    <div class="calendar-day-header">Qui</div>
+                    <div class="calendar-day-header">Sex</div>
+                    <div class="calendar-day-header">Sáb</div>
+                </div>
+                <div class="calendar-grid" id="calendarGrid">
+                    <!-- Os dias do calendário serão inseridos aqui via JavaScript -->
+                </div>
+            </div>
+
+            <!-- Botão para adicionar evento -->
+            <button class="btn-primary" id="addEventBtn">
+                <i class="fas fa-plus"></i>
+                Adicionar Evento
+            </button>
+
+            <!-- Eventos do dia selecionado -->
+            <div class="day-events" id="dayEvents" style="display: none;">
+                <h4>Eventos do dia <span id="selectedDate"></span></h4>
+                <div class="events-list" id="eventsList">
+                    <!-- Eventos serão inseridos aqui -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Tela 6: Cadastro do Rebanho -->
         <section id="cattle" class="screen">
             <div class="screen-header">
                 <h2>🐄 Cadastro do Rebanho</h2>
@@ -326,7 +486,8 @@
                         </div>
                         <div class="form-group">
                             <label for="healthHistory">Histórico de doenças</label>
-                            <textarea id="healthHistory" rows="3" placeholder="Descreva problemas de saúde anteriores..."></textarea>
+                            <textarea id="healthHistory" rows="3"
+                                placeholder="Descreva problemas de saúde anteriores..."></textarea>
                         </div>
                     </div>
 
@@ -381,7 +542,54 @@
         </section>
     </main>
 
+    <!-- Modal para adicionar evento -->
+    <div class="modal" id="eventModal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Adicionar Evento</h3>
+                <button class="modal-close" id="closeEventModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="eventForm">
+                <div class="form-group">
+                    <label for="eventTitle">Título do Evento</label>
+                    <input type="text" id="eventTitle" required placeholder="Ex: Vacinação contra Aftosa">
+                </div>
+                <div class="form-group">
+                    <label for="eventDate">Data</label>
+                    <input type="date" id="eventDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="eventType">Tipo de Evento</label>
+                    <select id="eventType" required>
+                        <option value="">Selecione o tipo</option>
+                        <option value="vaccine">Vacinação</option>
+                        <option value="pasture">Rotação de Pasto</option>
+                        <option value="breeding">Reprodução</option>
+                        <option value="health">Saúde</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="eventAnimal">Animal (opcional)</label>
+                    <select id="eventAnimal">
+                        <option value="">Todos os animais</option>
+                        <!-- Opções serão preenchidas via JavaScript -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="eventNotes">Observações</label>
+                    <textarea id="eventNotes" rows="3" placeholder="Observações adicionais..."></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" id="cancelEvent">Cancelar</button>
+                    <button type="submit" class="btn-primary">Salvar Evento</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
-</html>
 
+</html>
