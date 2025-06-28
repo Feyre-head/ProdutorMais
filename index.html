@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtor +</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="logo">Produtor <span class="plus">+</span></h1>
+            <div class="user-info">
+                <i class="fas fa-user-circle"></i>
+                <span>João Silva</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bottom-nav">
+        <button class="nav-btn active" data-screen="education">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Educação</span>
+        </button>
+        <button class="nav-btn" data-screen="results">
+            <i class="fas fa-chart-line"></i>
+            <span>Resultados</span>
+        </button>
+        <button class="nav-btn" data-screen="financial">
+            <i class="fas fa-dollar-sign"></i>
+            <span>Financeiro</span>
+        </button>
+        <button class="nav-btn" data-screen="cattle">
+            <i class="fas fa-cow"></i>
+            <span>Rebanho</span>
+        </button>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Tela 1: Módulo de Educação -->
+        <section id="education" class="screen active">
+            <div class="screen-header">
+                <h2>📚 Módulo de Educação</h2>
+                <p>Aprenda com conteúdos práticos e acessíveis</p>
+            </div>
+            
+            <div class="module-card">
+                <h3>Módulo 1: Alimentação e nutrição básica</h3>
+                
+                <div class="video-container">
+                    <div class="video-placeholder">
+                        <i class="fas fa-play-circle"></i>
+                        <p>Vídeo: Fundamentos da Nutrição Bovina</p>
+                        <span class="duration">8:30 min</span>
+                    </div>
+                </div>
+
+                <div class="key-points">
+                    <h4>Pontos-chave:</h4>
+                    <div class="checklist">
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="racao">
+                            <span class="checkmark"></span>
+                            Ração balanceada
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="agua">
+                            <span class="checkmark"></span>
+                            Água limpa e fresca
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="minerais">
+                            <span class="checkmark"></span>
+                            Suplementação mineral
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="pastagem">
+                            <span class="checkmark"></span>
+                            Qualidade da pastagem
+                        </label>
+                    </div>
+                </div>
+
+                <div class="progress-section">
+                    <div class="progress-info">
+                        <span>Progresso da trilha</span>
+                        <span>3/10 módulos</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 30%"></div>
+                    </div>
+                </div>
+
+                <button class="btn-primary">
+                    <i class="fas fa-arrow-right"></i>
+                    Próximo conteúdo
+                </button>
+            </div>
+        </section>
+
+        <!-- Tela 2: Resultados e Indicadores -->
+        <section id="results" class="screen">
+            <div class="screen-header">
+                <h2>📈 Resultados e Indicadores</h2>
+                <p>Acompanhe o impacto na sua produtividade</p>
+            </div>
+
+            <div class="metrics-container">
+                <div class="highlight-metric">
+                    <div class="metric-icon">🎯</div>
+                    <div class="metric-content">
+                        <h3>Você aumentou sua produção em</h3>
+                        <div class="metric-value">23%</div>
+                        <p>após completar 3 módulos</p>
+                    </div>
+                </div>
+
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <h4>Produção de Leite/Dia</h4>
+                        <div class="chart-container">
+                            <div class="bar-chart">
+                                <div class="bar-group">
+                                    <div class="bar before" style="height: 60%">
+                                        <span class="bar-label">Antes</span>
+                                        <span class="bar-value">180L</span>
+                                    </div>
+                                    <div class="bar after" style="height: 100%">
+                                        <span class="bar-label">Depois</span>
+                                        <span class="bar-value">221L</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chart-card">
+                        <h4>Saúde dos Animais</h4>
+                        <div class="health-metrics">
+                            <div class="health-item">
+                                <span class="health-label">Vacinas em dia</span>
+                                <div class="health-bar">
+                                    <div class="health-fill" style="width: 95%"></div>
+                                </div>
+                                <span class="health-value">95%</span>
+                            </div>
+                            <div class="health-item">
+                                <span class="health-label">Peso médio</span>
+                                <div class="health-bar">
+                                    <div class="health-fill" style="width: 88%"></div>
+                                </div>
+                                <span class="health-value">520kg</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-secondary">
+                    <i class="fas fa-chart-bar"></i>
+                    Comparar resultados
+                </button>
+            </div>
+        </section>
+
+        <!-- Tela 3: Impacto Financeiro -->
+        <section id="financial" class="screen">
+            <div class="screen-header">
+                <h2>💰 Impacto Financeiro</h2>
+                <p>Veja como a educação impacta seu faturamento</p>
+            </div>
+
+            <div class="financial-container">
+                <div class="revenue-highlight">
+                    <div class="revenue-icon">💰</div>
+                    <div class="revenue-content">
+                        <h3>Aumento no faturamento</h3>
+                        <div class="revenue-value">+R$ 1.250</div>
+                        <p>por mês</p>
+                    </div>
+                </div>
+
+                <div class="tips-section">
+                    <h4>Dicas rápidas para maximizar lucros:</h4>
+                    <div class="tips-grid">
+                        <div class="tip-card">
+                            <i class="fas fa-chart-line"></i>
+                            <h5>Venda com mais margem</h5>
+                            <p>Melhore a qualidade do leite para conseguir preços premium</p>
+                        </div>
+                        <div class="tip-card">
+                            <i class="fas fa-heart"></i>
+                            <h5>Mantenha o animal saudável</h5>
+                            <p>Animais saudáveis produzem mais e por mais tempo</p>
+                        </div>
+                        <div class="tip-card">
+                            <i class="fas fa-leaf"></i>
+                            <h5>Otimize a alimentação</h5>
+                            <p>Reduza custos com ração balanceada e pastagem de qualidade</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn-primary">
+                        <i class="fas fa-graduation-cap"></i>
+                        Acessar conteúdo avançado
+                    </button>
+                    <button class="btn-share">
+                        <i class="fas fa-share-alt"></i>
+                        Compartilhar minha evolução
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tela 4: Cadastro do Rebanho -->
+        <section id="cattle" class="screen">
+            <div class="screen-header">
+                <h2>🐄 Cadastro do Rebanho</h2>
+                <p>Registre e acompanhe cada animal</p>
+            </div>
+
+            <div class="cattle-form">
+                <form id="cattleForm">
+                    <!-- Foto do Animal -->
+                    <div class="form-section">
+                        <h4>📸 Foto do Animal</h4>
+                        <div class="photo-upload">
+                            <div class="photo-placeholder">
+                                <i class="fas fa-camera"></i>
+                                <p>Tirar foto ou selecionar</p>
+                            </div>
+                            <input type="file" id="animalPhoto" accept="image/*" hidden>
+                        </div>
+                    </div>
+
+                    <!-- Identificação -->
+                    <div class="form-section">
+                        <h4>🏷️ Identificação</h4>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="animalId">Número/Brinco *</label>
+                                <input type="text" id="animalId" required placeholder="Ex: 001">
+                            </div>
+                            <div class="form-group">
+                                <label for="animalName">Nome/Apelido</label>
+                                <input type="text" id="animalName" placeholder="Ex: Mimosa">
+                            </div>
+                            <div class="form-group">
+                                <label for="breed">Raça</label>
+                                <select id="breed">
+                                    <option value="">Selecione a raça</option>
+                                    <option value="holandesa">Holandesa</option>
+                                    <option value="jersey">Jersey</option>
+                                    <option value="gir">Gir</option>
+                                    <option value="nelore">Nelore</option>
+                                    <option value="mestica">Mestiça</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="birthDate">Data de Nascimento</label>
+                                <input type="date" id="birthDate">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Produção -->
+                    <div class="form-section">
+                        <h4>🥛 Informações de Produção</h4>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="milkProduction">Produção média (L/dia)</label>
+                                <input type="number" id="milkProduction" step="0.1" placeholder="Ex: 25.5">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastMilking">Última ordenha</label>
+                                <input type="datetime-local" id="lastMilking">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Status de lactação:</label>
+                            <div class="radio-group">
+                                <label class="radio-item">
+                                    <input type="radio" name="lactationStatus" value="lactating">
+                                    <span class="radio-mark"></span>
+                                    Em lactação
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="lactationStatus" value="dry">
+                                    <span class="radio-mark"></span>
+                                    Seca
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="lactationStatus" value="heifer">
+                                    <span class="radio-mark"></span>
+                                    Novilha
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Saúde -->
+                    <div class="form-section">
+                        <h4>🏥 Saúde e Vacinação</h4>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="lastVaccination">Última vacinação</label>
+                                <input type="date" id="lastVaccination">
+                            </div>
+                            <div class="form-group">
+                                <label for="vaccinationType">Tipo de vacina</label>
+                                <input type="text" id="vaccinationType" placeholder="Ex: Aftosa">
+                            </div>
+                            <div class="form-group">
+                                <label for="nextVaccination">Próxima vacina</label>
+                                <input type="date" id="nextVaccination">
+                            </div>
+                            <div class="form-group">
+                                <label for="temperature">Temperatura corporal (°C)</label>
+                                <input type="number" id="temperature" step="0.1" placeholder="Ex: 38.5">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="healthHistory">Histórico de doenças</label>
+                            <textarea id="healthHistory" rows="3" placeholder="Descreva problemas de saúde anteriores..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Reprodução -->
+                    <div class="form-section">
+                        <h4>🤱 Reprodução</h4>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="lastBirth">Último parto</label>
+                                <input type="date" id="lastBirth">
+                            </div>
+                            <div class="form-group">
+                                <label for="offspring">Número de crias</label>
+                                <input type="number" id="offspring" min="0" placeholder="Ex: 3">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Status reprodutivo:</label>
+                            <div class="radio-group">
+                                <label class="radio-item">
+                                    <input type="radio" name="reproductiveStatus" value="pregnant">
+                                    <span class="radio-mark"></span>
+                                    Prenha
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="reproductiveStatus" value="empty">
+                                    <span class="radio-mark"></span>
+                                    Vazia
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="reproductiveStatus" value="insemination">
+                                    <span class="radio-mark"></span>
+                                    Em inseminação
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botões de ação -->
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary">
+                            <i class="fas fa-copy"></i>
+                            Duplicar dados
+                        </button>
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-save"></i>
+                            Salvar animal
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
